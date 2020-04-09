@@ -1,10 +1,34 @@
 <body>
-	<h1>Project Management Home Screen</h1>
-		<p> This shows if the employee is normal </p>
-		<div class = "pl"></div>
-		<div class = "admin"></div>
+	<header>Project Management Home Screen</header>
+	<div id = "profile">
+		<p id = "id" >Welcome</p>
+		<p id = "fName">FirstName</p>
+		<p id = "lName">LastName</p>
+	</div>
+	<div id="side-menu">
+		<p onclick = "loadProfile()">Profile</p>
+		<p onclick = "loadDueToday()">Due Today</p>
+		<p>Task List</p>
+		<p class = "pl"></p>
+		<p class = "admin"></p>
 		<form method="get" action = "/index.html">
 			<button type="submit">Back to Login</button>
 		</form>
-	</body>
+	</div>
+	<div id="projectBlock">
+		<h1>Project List</h1>
+		<div id="projects">
+			<p id = "ifNoProj"> No projects Assigned </p>
+		</div>
+	</div>
+	<div id="profileBlock" style = "display: none;">
+		<h1>Profile</h1>
+		<div id="profileInfo">
+		</div>
+	</div>
+	<div id="dueTodayBlock" style = "display: none;">
+		<h1>Due Today:</h1>
+		<div id="dueToday">
+		</div>
+	</div>
 </body>

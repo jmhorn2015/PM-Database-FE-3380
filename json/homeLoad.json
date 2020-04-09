@@ -1,0 +1,30 @@
+{
+	"empID": "1234567",
+	"firstName": "Jotaro",
+	"lastName": "Kujo",
+	"empType": "pl",
+	"deptID": "Japan",
+	"ProjectList": {
+		"ProjectID1": {
+			"title": "Stardust Crusaders",
+			"status": "OPEN",
+			"finDate": "1/16/1989",
+			"taskFin": "8",
+			"taskTotal": "10"
+		},
+		"ProjectID2": {
+			"title": "Diamond is Unbreakable",
+			"status": "OPEN",
+			"finDate": "1/16/1999",
+			"taskFin": "0",
+			"taskTotal": "10"
+		},
+		"ProjectID3": {
+			"title": "Stone Ocean",
+			"status": "OPEN",
+			"finDate": "1/16/2012",
+			"taskFin": "0",
+			"taskTotal": "10"
+		}
+	}
+}
