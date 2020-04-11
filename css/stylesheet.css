@@ -86,9 +86,17 @@ li:hover {
 	background: #afafaf;
 }
 
+.task{
+	background: #cfcfcf;
+}
+
 .column {
   float: left;
-  width: 25%;
+  width: 22%;
+  background: #afafaf;
+  border-style: solid;
+  border-color: white;
+  padding: 5px;
 }
 
 .row:after {

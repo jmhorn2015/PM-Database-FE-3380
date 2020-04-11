@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"empID": "1234567",
+			"firstName": "Jotaro",
+			"lastName": "Kujo"
+		},
+		{
+			"empID": "1111111",
+			"firstName": "Jean Pierre",
+			"lastName": "Polnareff"
+		},
+		{
+			"empID": "7654321",
+			"firstName": "Joseph",
+			"lastName": "Joestar"
+		}
+	]
+}

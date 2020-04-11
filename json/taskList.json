@@ -1,0 +1,100 @@
+{
+	"data": [
+		{
+			"taskID": "TaskID1",
+			"empID": "1234567",
+			"title": "Beat up a stranger",
+			"overview": "Punching bags are too soft to train Star Platinum on. Find some juveniles and kick their teeth in!",
+			"startDate" : "12/20/1988 8:00 am",
+			"finDate" : "",
+			"estTime" : "1", 
+			"totalTime" : "",
+			"tags" : "students, angst, stand",
+			"status" : "wip"
+		},
+		{
+			"taskID": "TaskID2",
+			"empID": "1234567",
+			"title": "Say 'Yare Yare'",
+			"overview": "You just gotta. It is what it is.",
+			"startDate" : "12/20/1988 8:00 am",
+			"finDate" : "12/20/1988 9:00 am",
+			"estTime" : "1", 
+			"totalTime" : "1",
+			"tags" : "students, angst, catchphrase",
+			"status" : "closed"
+		},
+		{
+			"taskID": "TaskID3",
+			"empID": "1234567",
+			"title": "Comb SP's Hair",
+			"overview": "The glorious locks must be maintained properly!",
+			"startDate" : "12/20/1988 10:00 am",
+			"finDate" : "",
+			"estTime" : "3", 
+			"totalTime" : "",
+			"tags" : "stand, beauty",
+			"status" : "open"
+		},
+		{
+			"taskID": "TaskID4",
+			"empID": "1111111",
+			"title": "Find a Clean Toilet",
+			"overview": "Or at least a normal one. Asian toilets are so wierd!",
+			"startDate" : "12/22/1988 10:00 am",
+			"finDate" : "",
+			"estTime" : "5", 
+			"totalTime" : "",
+			"tags" : "beauty",
+			"status" : "blocked"
+		},
+		{
+			"taskID": "TaskID4",
+			"empID": "1111111",
+			"title": "Buy more Hairspray",
+			"overview": "The hair pillar is the most important part of my character! I cant lose it!",
+			"startDate" : "12/23/1988 8:00 am",
+			"finDate" : "",
+			"estTime" : "2", 
+			"totalTime" : "",
+			"tags" : "catchphrase, beauty",
+			"status" : "wip"
+		},
+		{
+			"taskID": "TaskID5",
+			"empID": "7654321",
+			"title": "Discover Josuke",
+			"overview": " You dummy, why did you do that to Suzi Q and Tomoko! 16 YEARS!",
+			"startDate" : "12/25/1988 10:00 am",
+			"finDate" : "",
+			"estTime" : "8", 
+			"totalTime" : "",
+			"tags" : "angst",
+			"status" : "blocked"
+		},
+		{
+			"taskID": "TaskID6",
+			"empID": "7654321",
+			"title": "Swing around like Spiderman",
+			"overview": "Use Purple Hermit to swing around Egypt like your favorite Marvel Hero!",
+			"startDate" : "1/16/1989 10:00 pm",
+			"finDate" : "1/16/1989 11:00 pm",
+			"estTime" : "1", 
+			"totalTime" : "1",
+			"tags" : "stand",
+			"status" : "closed"
+		},
+		{
+			"taskID": "TaskID7",
+			"empID": "7654321",
+			"title": "Say OH MY GOD",
+			"overview": " You just gotta do it to em.",
+			"startDate" : "12/20/1988 10:00 am",
+			"finDate" : "",
+			"estTime" : "1", 
+			"totalTime" : "",
+			"tags" : "catchphrase",
+			"status" : "wip"
+		}
+	]
+}

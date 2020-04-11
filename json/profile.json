@@ -1,12 +1,14 @@
 {
 	"data": [
+	{
 		"empID": "1234567",
 		"deptID": "Japan",
 		"firstName": "Jotaro",
 		"lastName": "Kujo",
-		"payrate": "$20",
-		"hourOrSal" : "Hourly",
-		"lastPaycheck" : "4/20/2020",
+		"payrate": "20",
+		"hourOrSal": "Hourly",
+		"lastPaycheck": "4/20/2020",
 		"empType": "pl"
+		}
 	]
 }
