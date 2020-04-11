@@ -1,30 +1,31 @@
 {
-	"empID": "1234567",
-	"firstName": "Jotaro",
-	"lastName": "Kujo",
-	"empType": "pl",
-	"deptID": "Japan",
-	"ProjectList": {
-		"ProjectID1": {
+	"data": [
+		{
+			"projectID": "ProjectID1",
+			"projectLead": "7654321",
 			"title": "Stardust Crusaders",
 			"status": "OPEN",
 			"finDate": "1/16/1989",
-			"taskFin": "8",
-			"taskTotal": "10"
+			"budget": "20000",
+			"current_balance": "5000"
 		},
-		"ProjectID2": {
+		{
+			"projectID": "ProjectID2",
+			"projectLead": "1234567",
 			"title": "Diamond is Unbreakable",
 			"status": "OPEN",
 			"finDate": "1/16/1999",
-			"taskFin": "0",
-			"taskTotal": "10"
+			"budget": "20000",
+			"current_balance": "5000"
 		},
-		"ProjectID3": {
+		{
+			"projectID": "ProjectID3",
+			"projectLead": "1234567",
 			"title": "Stone Ocean",
 			"status": "OPEN",
 			"finDate": "1/16/2012",
-			"taskFin": "0",
-			"taskTotal": "10"
+			"budget": "20000",
+			"current_balance": "5000"
 		}
-	}
+	]
 }

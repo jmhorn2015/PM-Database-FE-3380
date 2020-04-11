@@ -1,43 +1,44 @@
 {
-	"ProjectList": {
-		"ProjectID1": {
-			"title": "Stardust Crusaders",
-			"TaskList":{
-				"TaskID1" :{
-					"title": "Beat up a stranger"
-				},
-				"TaskID2" :{
-					"title": "Say 'Yare Yare'"
-				},
-				"TaskID3" :{
-					"title": "Comb SP's Hair"
-				}
-			}
+	"data": [
+		{
+			"taskID": "TaskID1",
+			"projectID": "ProjectID1",
+			"title": "Beat up a stranger"
 		},
-		"ProjectID2": {
-			"title": "Diamond is Unbreakable",
-			"TaskList":{
-				"TaskID1" :{
-					"title": "Find Kira"
-				},
-				"TaskID2" :{
-					"title": "Look at Dolphins"
-				}
-			}
+		{
+			"taskID": "TaskID2",
+			"projectID": "ProjectID1",
+			"title": "Say 'Yare Yare'"
 		},
-		"ProjectID3": {
-			"title": "Stone Ocean",
-			"TaskList":{
-				"TaskID1" :{
-					"title": "File Divorce"
-				},
-				"TaskID2" :{
-					"title": "Ignore Jolyne"
-				},
-				"TaskID3" :{
-					"title": "Look at Starfish"
-				}
-			}
+		{
+			"taskID": "TaskID3",
+			"projectID": "ProjectID1",
+			"title": "Comb SP's Hair"
+		},
+		{
+			"taskID": "TaskID4",
+			"projectID": "ProjectID2",
+			"title": "Find Kira"
+		},
+		{
+			"taskID": "TaskID4",
+			"projectID": "ProjectID2",
+			"title": "Look at Dolphins"
+		},
+		{
+			"taskID": "TaskID5",
+			"projectID": "ProjectID3",
+			"title": "File Divorce"
+		},
+		{
+			"taskID": "TaskID6",
+			"projectID": "ProjectID3",
+			"title": "Ignore Jolyne"
+		},
+		{
+			"taskID": "TaskID7",
+			"projectID": "ProjectID3",
+			"title": "Look at Starfish"
 		}
-	}
+	]
 }

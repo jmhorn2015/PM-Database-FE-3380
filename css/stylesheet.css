@@ -85,3 +85,20 @@ li:hover {
 	right: 3rem;
 	background: #afafaf;
 }
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
