@@ -6,11 +6,10 @@
 		<p id = "lName">LastName</p>
 	</div>
 	<div id="side-menu">
-		<p onclick = "loadProfile()">Profile</p>
-		<p onclick = "loadDueToday()">Due Today</p>
-		<p>Task List</p>
-		<p class = "pl"></p>
-		<p class = "admin"></p>
+		<p id = "sm-profile" onclick = "loadProfile()">Profile</p>
+		<p id = "sm-dueToday" onclick = "loadDueToday()">Due Today</p>
+		<p class = "pl" onclick = "loadFinances()"></p>
+		<p class = "admin"onclick = "loadNewAcct()" ></p>
 		<form method="get" action = "/index.html">
 			<button type="submit">Back to Login</button>
 		</form>
@@ -31,4 +30,17 @@
 		<div id="dueToday">
 		</div>
 	</div>
+	<div id="financeBlock" style = "display: none;">
+		<h1>Finances:</h1>
+		<div id="finance">
+		</div>
+	</div>
+	<div id="adminBlock" style = "display: none;">
+		<h1>New Account Creation:</h1>
+		<div id="newAcct">
+		</div>
+	</div>
+	<form method="get" action = "/project.html" style = "display: none;" id = "openProject">
+		<input type="text" id="projID" name="projID" required>
+	</form>
 </body>

@@ -9,6 +9,12 @@ body {
 	list-style-position: inside;
 }
 
+#login{
+	text-align: center;
+	padding: 0px;
+	padding-top: 1rem;
+}
+
 header {
 	z-index: 1000;
 	top: 0px;
