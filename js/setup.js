@@ -13,7 +13,7 @@ var checkLogIn = function () {
 				$( ".pl" ).load( "pl.html" );
 			}
 			else if(type == "json"){
-				$.getJSON('json/profile.json', function(js) {
+				$.getJSON('json/profile.json', function(js) { //return json of employee tuple from their id 
 				  $('#id').attr("id", js.data[0].empID);
                   $('#fName').html(js.data[0].firstName);
 				  $('#lName').html(js.data[0].lastName);
@@ -25,7 +25,7 @@ var checkLogIn = function () {
 				  }
                })
 				  .done(function() {
-					  $.getJSON('json/homeLoad.json', function(js) {
+					  $.getJSON('json/homeLoad.json', function(js) { //return json of array of project tuples where employee id is in employee id list
 						  if(js.data != null){
 							  $("#ifNoProj").remove();
 						  }
@@ -51,12 +51,12 @@ var loadProfile = function (){
 	if($("#profileBlock").css("display") == "none"){
 		$("#projectBlock").css("display", "none");
 		if($("#profileInfo").children().length == 0){
-			$.getJSON('json/profile.json', function(js) {
+			$.getJSON('json/profile.json', function(js) { //return json of employee tuple from their id
                   $("#profileInfo").append(
 				  		'<p> Employee ID: ' + js.data[0].empID + '</p><p> Department ID: ' + js.data[0].deptID + ' </p><p> Pay Rate: $' + js.data[0].payrate + '</p><p> Pay Type: ' + js.data[0].hourOrSal + ' </p><p> Last Paycheck: ' + js.data[0].lastPaycheck + '</p><ul> Lead for Projects:</ul>');
                })
 			   	.done(function() {
-				  $.getJSON('json/homeLoad.json', function(js) {
+				  $.getJSON('json/homeLoad.json', function(js) { //return json of array of project tuples where employee id is in employee id list
 					  $.each( js.data, function( id, project){
 						if(project.projectLead == $($("#profile").children()[0]).attr("id")){
 							$("#profileInfo").find("ul").append(
@@ -90,7 +90,7 @@ var loadDueToday = function (){
 	if($("#dueTodayBlock").css("display") == "none"){
 		$("#projectBlock").css("display", "none");
 		if($("#dueToday").children().length == 0){
-			$.getJSON('json/dueToday.json', function(js) {
+			$.getJSON('json/dueToday.json', function(js) { // return json with task tuples that match employee ID and also match the current date.
 					$.each( js.data, function( taskid, task){
 						if($("#dueToday").find("#"+ task.projectID).length == 0){
 							$("#dueToday").append(
@@ -103,7 +103,7 @@ var loadDueToday = function (){
 				  		'<button onclick = "loadDueToday()">Back to Projects</button>');
                })
 			   	.done(function() {
-				  $.getJSON('json/homeLoad.json', function(js) {
+				  $.getJSON('json/homeLoad.json', function(js) {  //return json of array of project tuples where employee id is in employee id list
 					  $.each( js.data, function( id, project){
 						$($("#dueToday").find("#"+ project.projectID).prev()).html(project.title);
 					  });
@@ -132,7 +132,7 @@ var loadFinances = function (){
 	if($("#financeBlock").css("display") == "none"){
 		$("#projectBlock").css("display", "none");
 		if($("#finance").children().length == 0){
-			$.getJSON('json/finances.json', function(js) {
+			$.getJSON('json/finances.json', function(js) { // return last 3 transactions for all projects where employee is a project lead
 					$.each( js.data, function( transid, trans){
 						if($("#finance").find("#"+ trans.projectID).length == 0){
 							$("#finance").append(
@@ -145,7 +145,7 @@ var loadFinances = function (){
 				  		'<button onclick = "loadFinances()">Back to Projects</button>');
                })
 			   	.done(function() {
-				  $.getJSON('json/homeLoad.json', function(js) {
+				  $.getJSON('json/homeLoad.json', function(js) {  //return json of array of project tuples where employee id is in employee id list
 					  $.each( js.data, function( id, project){
 						$($("#finance").find("#"+ project.projectID).prev()).html(project.title);
 					  });
@@ -175,7 +175,7 @@ var loadNewAcct = function (){
 	if($("#adminBlock").css("display") == "none"){
 		$("#projectBlock").css("display", "none");
 		if($("#newAcct").children().length == 0){
-			$.getJSON('json/profile.json', function(js) {
+			$.getJSON('json/profile.json', function(js) { //return json of employee tuple from their id 
                   $("#newAcct").append(
 				  '<form><label for="fname">First name:</label><br><input type="text" id="fname" name="fname" required><br><label for="mname">Middle name:</label><br><input type="text" id="mname" name="mname"><br><label for="lname">Last name:</label><br><input type="text" id="lname" name="lname" required><br><label for="deptID">Department ID:</label><br><input type="text" id="deptID" name="deptID" required><br><label for="payrate">Pay Rate: </label><br><input type="text" id="payrate" name="payrate" required><br><input type="radio" id="salary" name="salOrHour" value="Salary"><label for="Salary" required>Salary</label><br><input type="radio" id="hourly" name="salOrHour" value="Hourly"><label for="Hourly" required>Hourly</label><br><input type="submit" value="Submit"></form>');
 				  $("#newAcct").append(
@@ -218,14 +218,13 @@ var onOffSideMenu = function (){
 };
 
 var loadProjView = function (){
-	$.getJSON('json/taskList.json', function(js) {
+	$.getJSON('json/taskList.json', function(js) { // return json of all task tuples with selected project id
 		  $.each( js.data, function( n, task ){
-			$("#" + task.status).append('<div class = "task" id = "' + task.taskID + '"><h3>' + task.title + '</h3><p id = "' + task.empID + '"></p><p> Start Date: ' + task.startDate + ' </p><p> Tags: ' + task.tags + ' </p></div>');
+			$("#" + task.status).append('<div class = "task" id = "' + task.taskID + '"onclick = "loadTask(' + task.taskID+ ')" ><h3>' + task.title + '</h3><p id = "' + task.empID + '"></p><p> Start Date: ' + task.startDate + ' </p><p> Tags: ' + task.tags + ' </p></div>');
 		  });
-		  $("#projectBlock").append('<button>Back to Home</button>');
 	   })
 		.done(function() {
-			$.getJSON('json/projectEmps.json', function(js) {
+			$.getJSON('json/projectEmps.json', function(js) { // return json of all employee tuples who work on selected project
 			  $.each( $("#projectBlock").children(".row").children().children("div"), function( n, task ){
 				$.each(js.data, function (m, emp){
 					if($($(task).children()[1]).attr("id") == emp.empID){
@@ -234,6 +233,15 @@ var loadProjView = function (){
 				});
 			  });
 		   })
+			.done(function() {
+			$.getJSON('json/projectData.json', function(js) { // return json of the selected projects tuple
+				$("#overview").html(js.data[0].overview);
+				$("#projectName").html(js.data[0].title);
+		   })
+		   	.fail( function(d, textStatus, error) {
+				console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+			})
+		})
 		   	.fail( function(d, textStatus, error) {
 				console.error("getJSON failed, status: " + textStatus + ", error: "+error)
 			})
@@ -241,5 +249,33 @@ var loadProjView = function (){
 		.fail( function(d, textStatus, error) {
 			console.error("getJSON failed, status: " + textStatus + ", error: "+error)
 		})
+};
+
+var loadTask = function (div){
+	if($("#taskBlock").css("display") == "none"){
+		$.getJSON('json/taskList.json', function(js) { // return json of all task tuples with selected project id
+				$.each( js.data, function(n, task) {
+					if(task.taskID == $(div).attr("id")){
+						$("#title").attr("value",task.title); 
+						$("#overview2").html(task.overview);
+						$("#tags").attr("value",task.tags);
+						$("#startDate").attr("value",task.startDate);
+						$("#estTime").attr("value",task.estTime);
+						$("#finDate").attr("value",task.finDate);
+						$("#totalTime").attr("value",task.totalTime);
+						$("#" + task.status + "2").attr("checked", true);
+					}
+					
+				})
+		   })
+			  .fail( function(d, textStatus, error) {
+				console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+				})		
+		$("#taskBlock").css("display", "block");
+	}
+	else{
+		$("#taskBlock").css("display", "none");
+		
+	}
 };
 

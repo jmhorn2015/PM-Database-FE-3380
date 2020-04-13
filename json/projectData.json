@@ -1,0 +1,18 @@
+{
+	"data": [
+		{
+			"projectID": "ProjectID1",
+			"empID" : "1234567, 7654321, 1111111",
+			"projectLead": "7654321",
+			"timeTotal": "2",
+			"title": "Stardust Crusaders",
+			"overview" : "This is the story of Jotaro Kujo. He must travel across egypt to defeat the curse of his family, Dio, and save his mother from the curse of a stand.",
+			"status": "OPEN",
+			"startDate": "11/27/1988",
+			"finDate": "1/16/1989",
+			"estTime": "400",
+			"budget": "20000",
+			"current_balance": "5000"
+		}
+	]
+}

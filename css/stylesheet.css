@@ -99,6 +99,10 @@ li:hover {
   padding: 5px;
 }
 
+.task > h3 {
+	color: #4f4f4f;
+}
+
 .row:after {
   content: "";
   display: table;
@@ -109,4 +113,25 @@ li:hover {
   .column {
     width: 100%;
   }
+}
+
+#taskBlock{
+	display: none;
+	  border-style: solid;
+  border-color: white;
+	background: #afafaf;
+	padding: 2rem;
+	position: absolute;
+	top: 9.5rem;
+	left: 30%;
+	width: 650px;
+	height: 385px;
+	text-align: left;
+}
+
+#right{
+	right: 2rem;
+	top: 5rem;
+	position: absolute;
+	text-align: right;
 }

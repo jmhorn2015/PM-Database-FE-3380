@@ -13,22 +13,23 @@
 	</head>
 	<body>
 		<header>Project View Screen</header>
-		<div id = "profile">
-			<p id = "id" >Welcome</p>
-			<p id = "fName">FirstName</p>
-			<p id = "lName">LastName</p>
-		</div>
 		<div id="side-menu">
-			<p>Meetings</p>
+			<h4 style = "margin: 0px;">Overview:</h4>
+			<p id = "overview" style = "pointer-events:none; padding-left:1rem; margin-top: 0px;" ></p>
+			<p class = "pl">Organize a Meeting</p>
 			<p>Analytics</p>
 			<p class = "pl"></p>
 			<p class = "admin"></p>
-			<form method="get" action = "/index.html">
-				<button type="submit">Back to Login</button>
+			<form method="get" action = "/index.html?type=json">
+				<button type="submit">Back to Home</button>
 			</form>
+			<form method="get" action = "/index.html">
+				<button type="submit">Back to login</button>
+			</form>
+			
 		</div>
 		<div id="projectBlock">
-			<h1>Project List</h1>
+			<h1 id = "projectName">Project List</h1>
 			<div class="row">
 				<div class="column" id = "open">
 					<h2>Open</h2>
@@ -44,28 +45,34 @@
 				</div>
 			</div>
 		</div>
-		<div id="profileBlock" style = "display: none;">
-			<h1>Profile</h1>
-			<div id="profileInfo">
-			</div>
+		<div id="taskBlock">
+			<div style = "position: absolute; top: 2rem; right: 2rem; background: white;" onclick = "loadTask()"> X </div> 
+			<form id = "taskForm" method="post">
+				<input type="text" id="title" name="title" value = "(task name)" style= "font-size: 38px;" required><br><br>
+				<label for="overview2">Overview:</label><br>
+				<textarea name="overview2" id= "overview2" form="taskForm" style = "width: 300px; height: 260px;">Enter text here...</textarea><br>
+				<label for="tags">Tags:</label><br>
+				<input type="text" id="tags" name="tags"><br>
+				<div id = "right">
+					<label for="startDate">Start Date:</label><br>
+					<input type="datetime-local" id="startDate" name="startDate" required><br>
+					<label for="estTime">Estimated Completion Time: </label><br>
+					<input type="text" id="estTime" name="estTime"><br>
+					<label for="startDate">Finish Date:</label><br>
+					<input type="datetime-local" id="finDate" name="finDate" ><br>
+					<label for="totalTime">Total Completion Time: </label><br>
+					<input type="text" id="totalTime" name="totalTime"><br>
+					<input type="radio" id="open2" name="status" value="open">
+					<label for="open2" required>Open</label><br>
+					<input type="radio" id="wip2" name="status" value="wip">
+					<label for="wip2" required>Work In Progress</label><br>
+					<input type="radio" id="blocked2" name="status" value="blocked">
+					<label for="blocked2" required>Blocked</label><br>
+					<input type="radio" id="closed2" name="status" value="closed">
+					<label for="closed2" required>Closed</label><br><br><br><br><br>
+					<input type="submit" style= "bottom: 2rem;" value="Save">
+				</div>
+			</form>
 		</div>
-		<div id="dueTodayBlock" style = "display: none;">
-			<h1>Due Today:</h1>
-			<div id="dueToday">
-			</div>
-		</div>
-		<div id="financeBlock" style = "display: none;">
-			<h1>Finances:</h1>
-			<div id="finance">
-			</div>
-		</div>
-		<div id="adminBlock" style = "display: none;">
-			<h1>New Account Creation:</h1>
-			<div id="newAcct">
-			</div>
-		</div>
-		<form id="openProject" method="get" action = "/index.html">
-			<button type="submit">Back to Login</button>
-		</form>
 	</body>
 </html>
