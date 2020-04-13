@@ -127,27 +127,85 @@ var loadDueToday = function (){
 	}
 };
 
+var loadMeeting = function () {
+	onOffSideMenu();
+	if($("#meetingBlock").css("display") == "none"){
+		$("#projectBlock").css("display", "none");
+		if($("#meetingBlock").children().length == 5){
+			$.getJSON('json/meetings.json', function(js) {  //return json of array of all meetings with employees ID inside its empID list ordered from oldest date to newest
+					var today = new Date();
+					$.each( js.data, function( n, meeting){
+						var m = (meeting.date).split('-');
+						var date = new Date(m[0], m[1], m[2].substring(0,2));
+						if(today.getDate() == date.getDate()){
+							$("#meetingsToday").append(
+							'<h3>' + m[2].substring(3) + '</h3><p>' + meeting.projectID + '</p>');
+						}
+						else if(today < date){
+							$("#meetings").append(
+							'<h3>'+ m[1] + "/" + m[2].substring(0,2) + "/" + m[0] + " at "+ m[2].substring(3) + '</h3><p>' + meeting.projectID + '</p>');
+						}
+					});	
+				  $("#meetingBlock").append(
+				  	'<br><br><button onclick = "loadMeeting()">Back to Projects</button>');
+               })
+			   	.done(function() {
+				  $.getJSON('json/homeLoad.json', function(js) {  // return json of array of project tuples where employee id is in employee id list
+					  $.each( $("#meetingsToday").children("p") , function( n, div){
+						$.each( js.data , function( n, project){
+							if($(div).html() == project.projectID){
+								$(div).html(project.title);
+							}
+						});
+					  });
+					  $.each( $("#meetings").children("p") , function( n, div){
+						$.each( js.data , function( n, project){
+							if($(div).html() == project.projectID){
+								$(div).html(project.title);
+							}
+						});
+					  });
+					})
+					.fail( function(d, textStatus, error) {
+						console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+					})
+				  })
+				  .fail( function(d, textStatus, error) {
+					console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+					})
+
+
+		}
+		
+		$("#meetingBlock").css("display", "block");
+	}
+	else{
+		$("#meetingBlock").css("display", "none");
+		$("#projectBlock").css("display", "block");
+		
+	}
+};
+
 var loadFinances = function (){
 	onOffSideMenu();
 	if($("#financeBlock").css("display") == "none"){
 		$("#projectBlock").css("display", "none");
 		if($("#finance").children().length == 0){
-			$.getJSON('json/finances.json', function(js) { // return last 3 transactions for all projects where employee is a project lead
-					$.each( js.data, function( transid, trans){
-						if($("#finance").find("#"+ trans.projectID).length == 0){
+			$.getJSON('json/homeLoad.json', function(js) {  //return json of array of project tuples where employee id is in employee id list
+					$.each( js.data, function( n, project){
+						if($("#finance").find("#"+ project.projectID + "2").length == 0 & project.projectLead == $($("#profile").children()[0]).attr("id")){
 							$("#finance").append(
-							'<h2 onclick = "sendToProjectView(' + trans.projectID + ')" ></h2><p>Budget: $' + project.budget + '</p><p>Current Balance: $' + project.current_balance + '</p><h3>Last 3 Transactions:</h3><div id = "' + projid + '"></div><button type="submit" onclick = "new function(){$(&quot;#form-' + projid + '&quot;).css(&quot;display&quot;, &quot;block&quot;);}">New Transaction</button><form id = "form-'+ projid +'" style = "display: none;"><h3> New Project Transaction </h3><label for="pID">Project ID:</label><br><input type="text" id="pID" name="pID" value = "'+ projid +'" readonly><br><label for="payID">Employee ID:</label><br><input type="text" id="payID" name="payID" value = "' + $("#profile").children("p").attr("id") + '" readonly><br><label for="amount">Amount: (use negative if withdrawl)</label><br><input type="text" id="amount" name="amount" required><br><label for="desc">Description:</label><br><textarea type="text" id="desc" name="desc" rows = 3 required></textarea><br><label for="dest">Destination: </label><br><input type="text" id="dest" name="dest" required><br><button type="submit">Submit</button></form>');
+							'<h2 onclick = "sendToProjectView(' + project.projectID + '2)" >' + project.title + '</h2><p>Budget: $' + project.budget + '</p><p>Current Balance: $' + project.current_balance + '</p><h3>Last 3 Transactions:</h3><div id = "' + project.projectID + '"></div><button type="submit" onclick = "new function(){$(&quot;#form-' + project.projectID + '&quot;).css(&quot;display&quot;, &quot;block&quot;);}">New Transaction</button><form id = "form-'+ project.projectID +'" style = "display: none;"><h3> New Project Transaction </h3><label for="pID">Project ID:</label><br><input type="text" id="pID" name="pID" value = "'+ project.projectID +'" readonly><br><label for="payID">Employee ID:</label><br><input type="text" id="payID" name="payID" value = "' + $("#profile").children("p").attr("id") + '" readonly><br><label for="amount">Amount: (use negative if withdrawl)</label><br><input type="text" id="amount" name="amount" required><br><label for="desc">Description:</label><br><textarea type="text" id="desc" name="desc" rows = 3 required></textarea><br><label for="dest">Destination: </label><br><input type="text" id="dest" name="dest" required><br><button type="submit">Submit</button></form>');
 						}
-						$("#finance").find("#"+ task.projectID).append(
-						'<li id = "' + transid + '">' + trans.date + ' - $' + trans.amount + ': ' + trans.description + '</li>');
 					});	
 				  $("#finance").append(
-				  		'<button onclick = "loadFinances()">Back to Projects</button>');
+				  		'<br><br><button onclick = "loadFinances()">Back to Projects</button>');
                })
 			   	.done(function() {
-				  $.getJSON('json/homeLoad.json', function(js) {  //return json of array of project tuples where employee id is in employee id list
-					  $.each( js.data, function( id, project){
-						$($("#finance").find("#"+ project.projectID).prev()).html(project.title);
+				  $.getJSON('json/finances.json', function(js) {  // return last 3 transactions for all projects where employee is a project lead
+					  $.each( js.data, function( id, trans){
+						$("#finance").find("#"+ trans.projectID).append(
+						'<li id = "' + trans.transID + '">' + trans.date + ' - $' + trans.amount + ': ' + trans.description + '</li>');
 					  });
 					})
 					.fail( function(d, textStatus, error) {
@@ -211,6 +269,7 @@ var onOffSideMenu = function (){
 	else{
 		$("#sm-profile").attr("onclick", "loadProfile()");
 		$("#sm-dueToday").attr("onclick", "loadDueToday()");
+		$("#sm-Meetings").attr("onclick", "loadMeeting()");
 		$(".pl").attr("onclick", "loadFinances()");
 		$(".admin").attr("onclick", "loadNewAcct()");
 	}
@@ -275,6 +334,43 @@ var loadTask = function (div){
 	}
 	else{
 		$("#taskBlock").css("display", "none");
+		
+	}
+};
+
+var loadMeetLog = function () {
+	if($("#meetingBlock").css("display") == "none"){
+		$("#projectBlock").css("display", "none");
+		$("#meetingBlock").css("pointer-events", "none");
+		if($("#meetingLog").children().length == 1){
+			$.getJSON('json/meetings2.json', function(js) {  //return json of array of all meetings with project ID, ordered from oldest date to newest
+					var today = new Date();
+					$.each( js.data, function( n, meeting){
+						var m = (meeting.date).split('-');
+						var date = new Date(m[0], m[1], m[2].substring(0,2));
+						if(today > date && !(today.getDate() == date.getDate())){
+							$("#meetingLog").append('<h2> Meeting on ' + m[1] + "/" + m[2].substring(0,2) + "/" + m[0] + " at "+ m[2].substring(3) + '</h2><p>"' + meeting.notes + '"</p>');
+						}
+						else{
+							$("#futureMeetings").append('<h2> Meeting on ' + m[1] + "/" + m[2].substring(0,2) + "/" + m[0] + " at "+ m[2].substring(3) + '</h2>');
+						}
+					});	
+				  $("#meetingBlock").append(
+				  	'<br><br><button onclick = "loadMeetLog()">Back to Project</button>');
+               })
+				  .fail( function(d, textStatus, error) {
+					console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+					})
+
+
+		}
+		
+		$("#meetingBlock").css("display", "block");
+	}
+	else{
+		$("#meetingBlock").css("display", "none");
+		$("#meetingBlock").css("pointer-events", "");
+		$("#projectBlock").css("display", "block");
 		
 	}
 };

@@ -16,7 +16,7 @@
 		<div id="side-menu">
 			<h4 style = "margin: 0px;">Overview:</h4>
 			<p id = "overview" style = "pointer-events:none; padding-left:1rem; margin-top: 0px;" ></p>
-			<p class = "pl">Organize a Meeting</p>
+			<p class = "pl" onclick = "loadMeetLog()">Meeting Log</p>
 			<p>Analytics</p>
 			<p class = "pl"></p>
 			<p class = "admin"></p>
@@ -73,6 +73,14 @@
 					<input type="submit" style= "bottom: 2rem;" value="Save">
 				</div>
 			</form>
+		</div>
+		<div id="meetingBlock" style = "display: none;">
+			<div id = "meetingLog">
+				<h1> Meeting Log: </h1>
+			</div>
+			<div id = "futureMeetings">
+				<h1> Future Meetings: </h1>
+			</div>
 		</div>
 	</body>
 </html>

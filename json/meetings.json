@@ -1,0 +1,47 @@
+{
+	"data": [
+		{
+			"meetingID": "meeting1",
+			"projectID": "ProjectID1",
+			"empID" : "1234567, 7654321",
+			"date": "1998-2-14T10:00",
+			"notes" : "oiskdjfaksfoaefawof"
+		},
+				{
+			"meetingID": "meeting2",
+			"projectID": "ProjectID3",
+			"empID" : "1234567, 7654321",
+			"date": "1998-2-14T10:00",
+			"notes" : "aslkfakfn;aknfanfopafj"
+		},
+				{
+			"meetingID": "meeting3",
+			"projectID": "ProjectID2",
+			"empID" : "1234567, 7654321",
+			"date": "2020-4-13T10:00",
+			"notes" : ""
+		},
+				{
+			"meetingID": "meeting4",
+			"projectID": "ProjectID3",
+			"empID" : "1234567, 7654321",
+			"date": "2020-4-13T20:00",
+			"notes" : ""
+		},
+				{
+			"meetingID": "meeting5",
+			"projectID": "ProjectID1",
+			"empID" : "1234567, 7654321",
+			"date": "2020-4-15T10:00",
+			"notes" : ""
+		},
+		
+		{
+			"meetingID": "meeting6",
+			"projectID": "ProjectID2",
+			"empID" : "1234567, 7654321",
+			"date": "2020-4-22T10:00",
+			"notes" : ""
+		}
+	]
+}

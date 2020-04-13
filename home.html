@@ -8,6 +8,7 @@
 	<div id="side-menu">
 		<p id = "sm-profile" onclick = "loadProfile()">Profile</p>
 		<p id = "sm-dueToday" onclick = "loadDueToday()">Due Today</p>
+		<p id = "sm-Meetings" onclick = "loadMeeting()">Meetings</p>
 		<p class = "pl" onclick = "loadFinances()"></p>
 		<p class = "admin"onclick = "loadNewAcct()" ></p>
 		<form method="get" action = "/index.html">
@@ -29,6 +30,13 @@
 		<h1>Due Today:</h1>
 		<div id="dueToday">
 		</div>
+	</div>
+		<div id="meetingBlock" style = "display: none;">
+		<h1>Meetings:</h1>
+		<h2 style = "pointer-events: none;">Meetings Today:</h2>
+		<div id="meetingsToday"></div>
+		<h2 style = "pointer-events: none;" >Future Meetings:</h2>
+		<div id="meetings"></div>
 	</div>
 	<div id="financeBlock" style = "display: none;">
 		<h1>Finances:</h1>
