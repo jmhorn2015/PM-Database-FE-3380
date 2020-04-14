@@ -8,28 +8,17 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/setup.js"></script>
 	</head>
-	<body id = "login">
+	<body id = "login" action="/home.html">
 		<h1>Project Management Log In</h1>
-		<form>
+		<form method="post">
 			<p>Employee ID:</p>
 			<input type="text" id="empID" name="empID">
 			<p>Password:</p>
 			<input type="text" id="pass" name="password"><br><br>
 			<input type="submit" value="Log In">
 		</form>
-		<form method="get" target="_self">
-			<input type="radio" id="admin" name="type" value="admin">
-			<label for="admin">Admin</label><br>
-			<input type="radio" id="pl" name="type" value="pl">
-			<label for="pl">Project Lead</label><br>
-			<input type="radio" id="emp" name="type" value="emp">
-			<label for="emp">Employee</label><br>
-			<input type="radio" id="json" name="type" value="json">
-			<label for="json">Load Json</label><br>
-			<button type="submit">Continue</button>
+		<form method="get" action="/home.html">
+			<button type="submit">ERASE BEFORE PROJECT SUBMIT</button>
 		</form>
-		<script>
-			checkLogIn();
-		</script>
 	</body>
 </html>

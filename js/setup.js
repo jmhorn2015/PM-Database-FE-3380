@@ -1,49 +1,32 @@
 var checkLogIn = function () {
-	let params = new URLSearchParams(location.search);
-    var type = params.get("type");
-	if(type != null){
-		$("body").empty();
-		$("body").removeAttr("id");
-		$( "body" ).load( "home.html", function() {
-			if(type == "admin"){
-				console.log("admin");
-				$( ".admin" ).load( "admin.html" );
-			}
-			else if(type == "pl"){
-				$( ".pl" ).load( "pl.html" );
-			}
-			else if(type == "json"){
-				$.getJSON('json/profile.json', function(js) { //return json of employee tuple from their id 
-				  $('#id').attr("id", js.data[0].empID);
-                  $('#fName').html(js.data[0].firstName);
-				  $('#lName').html(js.data[0].lastName);
-				  if(js.data[0].empType == "admin"){
-					$( ".admin" ).load( "admin.html" );
-				  }
-				  else if(js.data[0].empType == "pl"){
-					$( ".pl" ).load( "pl.html" );
-				  }
-               })
-				  .done(function() {
-					  $.getJSON('json/homeLoad.json', function(js) { //return json of array of project tuples where employee id is in employee id list
-						  if(js.data != null){
-							  $("#ifNoProj").remove();
-						  }
-						  $.each( js.data, function( id, project){
-							$("#projects").append(
-							'<div class = "project" id = "' + project.projectID + '"><h1 style="margin: 0px;" onclick = "sendToProjectView(' + project.projectID + ')">' + project.title + '</h1><div>Status: ' + project.status + '</div><div>Due Date: ' + project.finDate + '</div></div><p></p>');
-						});
-					  })
-					  	.fail( function(d, textStatus, error) {
-							console.error("getJSON failed, status: " + textStatus + ", error: "+error)
-						})
-				  })
-				  .fail( function(d, textStatus, error) {
-					console.error("getJSON failed, status: " + textStatus + ", error: "+error)
-					})
-			}
-		});
-	}
+	$.getJSON('json/profile.json', function(js) { //return json of employee tuple from their id 
+	  $('#id').attr("id", js.data[0].empID);
+	  $('#fName').html(js.data[0].firstName);
+	  $('#lName').html(js.data[0].lastName);
+	  if(js.data[0].empType == "admin"){
+		$( ".admin" ).load( "admin.html" );
+	  }
+	  else if(js.data[0].empType == "pl"){
+		$( ".pl" ).load( "pl.html" );
+	  }
+   })
+	  .done(function() {
+		  $.getJSON('json/homeLoad.json', function(js) { //return json of array of project tuples where employee id is in employee id list
+			  if(js.data != null){
+				  $("#ifNoProj").remove();
+			  }
+			  $.each( js.data, function( id, project){
+				$("#projects").append(
+				'<div class = "project" id = "' + project.projectID + '"><h1 style="margin: 0px;" onclick = "sendToProjectView(' + project.projectID + ')">' + project.title + '</h1><div>Status: ' + project.status + '</div><div>Due Date: ' + project.finDate + '</div></div><p></p>');
+			});
+		  })
+			.fail( function(d, textStatus, error) {
+				console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+			})
+	  })
+	  .fail( function(d, textStatus, error) {
+		console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+		})
 };
 
 var loadProfile = function (){
