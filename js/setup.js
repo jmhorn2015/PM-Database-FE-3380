@@ -262,7 +262,8 @@ var onOffSideMenu = function (){
 var loadProjView = function (){
 	$.getJSON('json/taskList.json', function(js) { // return json of all task tuples with selected project id
 		  $.each( js.data, function( n, task ){
-			$("#" + task.status).append('<div class = "task" id = "' + task.taskID + '"onclick = "loadTask(' + task.taskID+ ')" ><h3>' + task.title + '</h3><p id = "' + task.empID + '"></p><p> Start Date: ' + task.startDate + ' </p><p> Tags: ' + task.tags + ' </p></div>');
+			  var m = task.startDate.split('-');
+			$("#" + task.status).append('<div class = "task" id = "' + task.taskID + '"onclick = "loadTask(' + task.taskID+ ')" ><h3>' + task.title + '</h3><p id = "' + task.empID + '"></p><p> Start Date: ' + m[1] + "/" + m[2].substring(0,2) + "/" + m[0] + ' </p><p> Tags: ' + task.tags + ' </p></div>');
 		  });
 	   })
 		.done(function() {
@@ -279,6 +280,8 @@ var loadProjView = function (){
 			$.getJSON('json/projectData.json', function(js) { // return json of the selected projects tuple
 				$("#overview").html(js.data[0].overview);
 				$("#projectName").html(js.data[0].title);
+				var url = window.location.href.split("/");
+				$("#empID").attr("value", url[url.length-2]);
 		   })
 		   	.fail( function(d, textStatus, error) {
 				console.error("getJSON failed, status: " + textStatus + ", error: "+error)
@@ -305,6 +308,7 @@ var loadTask = function (div){
 						$("#estTime").attr("value",task.estTime);
 						$("#finDate").attr("value",task.finDate);
 						$("#totalTime").attr("value",task.totalTime);
+						$("#taskID").attr("value",task.taskID);
 						$("#" + task.status + "2").attr("checked", true);
 					}
 					
@@ -316,6 +320,7 @@ var loadTask = function (div){
 		$("#taskBlock").css("display", "block");
 	}
 	else{
+		$("#taskID").attr("value","");
 		$("#taskBlock").css("display", "none");
 		
 	}

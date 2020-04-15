@@ -16,15 +16,17 @@
 		<div id="side-menu">
 			<h4 style = "margin: 0px;">Overview:</h4>
 			<p id = "overview" style = "pointer-events:none; padding-left:1rem; margin-top: 0px;" ></p>
+			<p onclick = 'new function(){$("#taskBlock").css("display", "block");}'>Add New Task</p>
 			<p class = "pl" onclick = "loadMeetLog()">Meeting Log</p>
 			<p>Analytics</p>
 			<p class = "pl"></p>
 			<p class = "admin"></p>
-			<form method="get" action = "/index.html?type=json">
+			<form method="post" action = "/home.html"> <!-- just change get to post -->
+				<input type="text" id="empID" name="empID" style = "display: none;" required>
 				<button type="submit">Back to Home</button>
 			</form>
 			<form method="get" action = "/index.html">
-				<button type="submit">Back to login</button>
+				<button type="submit">Back to Login</button>
 			</form>
 			
 		</div>
@@ -71,6 +73,7 @@
 					<input type="radio" id="closed2" name="status" value="closed">
 					<label for="closed2" required>Closed</label><br><br><br><br><br>
 					<input type="submit" style= "bottom: 2rem;" value="Save">
+					<input type="text" id="taskID" name="taskID" style = "display: none; readonly>
 				</div>
 			</form>
 		</div>
