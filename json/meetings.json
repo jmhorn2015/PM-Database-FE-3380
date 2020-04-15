@@ -2,7 +2,7 @@
 	"data": [
 		{
 			"meetingID": "meeting1",
-			"projectID": "ProjectID1"
+			"projectID": "ProjectID1",
 			"date": "1998-2-14T10:00",
 			"notes" : "oiskdjfaksfoaefawof"
 		},

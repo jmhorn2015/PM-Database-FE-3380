@@ -2,7 +2,6 @@
 	"data": [
 		{
 			"projectID": "ProjectID1",
-			"empID" : "1234567, 7654321, 1111111",
 			"projectLead": "7654321",
 			"timeTotal": "2",
 			"title": "Stardust Crusaders",

@@ -16,11 +16,12 @@
 			<p id = "lName">LastName</p>
 		</div>
 		<div id="side-menu">
+			<p id = "sm-project" onclick = 'new function(){ hideAll(1); $("#projectBlock").css("display", "block");}'>Projects</p>
 			<p id = "sm-profile" onclick = "loadProfile()">Profile</p>
 			<p id = "sm-dueToday" onclick = "loadDueToday()">Due Today</p>
 			<p id = "sm-Meetings" onclick = "loadMeeting()">Meetings</p>
-			<p class = "pl" onclick = "loadFinances()"></p>
-			<p class = "admin"onclick = "loadNewAcct()" ></p>
+			<p class = "pl" onclick = "loadFinances()">Finances</p>
+			<p class = "admin"onclick = "loadNewAcct()" >Account Creation</p>
 			<form method="get" action = "/index.html">
 				<button type="submit">Back to Login</button>
 			</form>
@@ -58,7 +59,7 @@
 			<div id="newAcct">
 			</div>
 		</div>
-		<form method="post" action = "/project.html" style = "display: none;" id = "openProject"> <!-- just change get to post -->
+		<form method="get" action = "/project.html" style = "display: none;" id = "openProject"> <!-- just change get to post -->
 			<input type="text" id="projID" name="projID" required>
 		</form>
 		<script>

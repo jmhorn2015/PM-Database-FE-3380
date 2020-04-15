@@ -3,14 +3,12 @@
 		{
 			"meetingID": "meeting1",
 			"projectID": "ProjectID1",
-			"empID" : "1234567, 7654321",
 			"date": "1998-2-14T10:00",
 			"notes" : "oiskdjfaksfoaefawof"
 		},
 		{
 			"meetingID": "meeting5",
 			"projectID": "ProjectID1",
-			"empID" : "1234567, 7654321",
 			"date": "2020-4-15T10:00",
 			"notes" : ""
 		}
